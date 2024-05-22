@@ -1,11 +1,9 @@
 package stepdefinitions;
 
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import static stepdefinitions.TestSetups.baseUrl;
@@ -19,8 +17,9 @@ public class formValidationSteps {
     }
 
     @Then("An error message is displayed saying {string}")
-    public void checkErrorMessage(String errorText) {
-        System.out.println("Des manually an ebgale error den briskoume to document me tpt");
+    public void checkErrorMessage(String errorText) throws InterruptedException {
+
+        System.out.println("\n\n\n\nDES TO MANUALLY AKOMA DEN KSEROUME TI THA KANOUME");
     }
 
     //Edw vazoume legit email
@@ -40,8 +39,9 @@ public class formValidationSteps {
     public void enterPassword(String pass) {
         driver.findElement(By.id(":r3:")).sendKeys(pass);
     }
-    @Then("A new user is created")
-    public void newUserMsg(){
+
+    @Then("The user is logged in")
+    public void newUserMsg() {
         System.out.println("Gia thn wra to exoume edw otan ftiaxtei tha valoume assertion");
     }
 }
