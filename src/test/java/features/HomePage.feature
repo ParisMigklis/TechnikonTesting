@@ -8,7 +8,7 @@ Feature: Home Page
 
   Scenario: Sign up Button Functionality
     Given The home page is displayed
-    And The sign up button is visible
+    And The signup button is visible
     When We click on the sign up button
-    Then The sign up form is displayed
+    Then The signup form is displayed
 
