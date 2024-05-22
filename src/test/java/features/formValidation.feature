@@ -5,22 +5,23 @@ Feature:Login Form Validation
     When I click the login button
     Then An error message is displayed saying "Please fill out this field"
 
-    Scenario: Test Empty Password Field after we enter e-mail on Login Form
-      Given The login form is displayed
-      And I have already entered a valid email "paris@gmail.com"
-      When I click the login button
-      Then An error message is displayed saying "Please fill out this field"
+  Scenario: Test Empty Password Field after we enter e-mail on Login Form
+    Given The login form is displayed
+    And I have already entered a valid email "paris@gmail.com"
+    When I click the login button
+    Then An error message is displayed saying "Please fill out this field"
 
-      Scenario: Test Entering invalid e-mail in Login Form
-        Given The login form is displayed
-        And I enter an invalid e-mail "invalidEmail"
-        When I click the login button
-        Then An error message is displayed saying "Please enter an email address"
+  Scenario: Test Entering invalid e-mail in Login Form
+    Given The login form is displayed
+    And I enter an invalid e-mail "invalidEmail"
+    When I click the login button
+    Then An error message is displayed saying "Please enter an email address"
 
-        #Scenario:Test entering an already in-use e-mail
-        Scenario: Test entering valid fields and creating a new User
-          Given The login form is displayed
-          And I have already entered a valid email "paris@gmail.com"
-          And I enter a password "1234"
-          When I click the login button
-          Then A new user is created
+    #Scenario:Test entering an already in-use e-mail
+  Scenario: Test entering valid fields and creating a new User
+    Given The login form is displayed
+    And I have already entered a valid email "paris@gmail.com"
+    And I enter a password "1234"
+    When I click the login button
+    Then A new user is created
+
