@@ -13,8 +13,8 @@ public class TestSetups {
 
     @Before
     public void setup(){
-        driver = new FirefoxDriver();
-
+        driver = new ChromeDriver();
+//        driver = new FirefoxDriver();
         driver.manage().window().maximize(); //maximize the window for better view
         System.out.println("\n\nThe test has Started");
     }

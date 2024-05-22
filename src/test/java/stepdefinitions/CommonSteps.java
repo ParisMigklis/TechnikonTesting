@@ -14,4 +14,10 @@ public class CommonSteps {
         String headerText =  driver.findElement(By.tagName("h1")).getText();
         Assert.assertEquals("\nABORT IT'S A TRAP!!\n","Login",headerText);
     }
+    @Given("The signup form is displayed")
+    public void getSignupForm(){
+        driver.get(baseUrl + "/signup");
+        String headerText =  driver.findElement(By.tagName("h1")).getText();
+        Assert.assertEquals("\nABORT IT'S A TRAP!!\n","Sign Up",headerText);
+    }
 }
