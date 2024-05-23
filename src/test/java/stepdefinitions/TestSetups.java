@@ -10,6 +10,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class TestSetups {
     public static WebDriver driver;
     public static String baseUrl="http://localhost:5173";
+    public static String loginUrl = baseUrl + "/login";
+    public static String signupUrl = baseUrl + "/signup";
 
     @Before
     public void setup(){
