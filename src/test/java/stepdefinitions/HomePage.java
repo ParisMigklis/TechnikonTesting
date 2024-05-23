@@ -29,9 +29,10 @@ public class HomePage {
                 .click();
     }
 
-    @Then("We get transferred to the login page")
-    public void validateLoginPage(){
-        Assert.assertEquals("Url not expected",driver.getCurrentUrl(), loginUrl);
+    @Then("We get transferred to the {string} page")
+    public void validatePage(String endpoint){
+        Assert.assertEquals("Url not expected",driver.getCurrentUrl(), baseUrl+ endpoint);
+        //System.out.println(driver.getCurrentUrl());
     }
 
     @When("We click on the signup button")
@@ -40,9 +41,31 @@ public class HomePage {
                 .click();
     }
 
-    @Then("We get transferred to the signup page")
-        public void validateSignupPage(){
-        Assert.assertEquals("Url not expected",driver.getCurrentUrl(), signupUrl);
+//    @Then("We get transferred to the signup page")
+//        public void validateSignupPage(){
+//        Assert.assertEquals("Url not expected",driver.getCurrentUrl(), signupUrl);
+//        //System.out.println(driver.getCurrentUrl());
+//    }
+
+    @When("We click the admin button")
+        public  void clickAdminButton(){
+        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[2]/a[1]"))
+                .click();
     }
 
+    @Then("We get transferred to the admin page")
+       public void validateAdminpage(){
+        Assert.assertEquals("Url not expected",driver.getCurrentUrl(), adminUrl);
+    }
+
+    @When("We click the owner button")
+    public  void clickOwnerButton(){
+        driver.findElement(By.xpath("/html/body/div/div/div/header/div/div[3]/a"))
+                .click();
+    }
+
+    @Then("We get transferred to the owner page")
+    public void validateOwnerpage(){
+        Assert.assertEquals("Url not expected",driver.getCurrentUrl(), ownerUrl);
+    }
 }

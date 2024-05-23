@@ -12,6 +12,10 @@ public class TestSetups {
     public static String baseUrl="http://localhost:5173";
     public static String loginUrl = baseUrl + "/login";
     public static String signupUrl = baseUrl + "/signup";
+    public static String adminUrl = baseUrl + "/admin";
+    public static String ownerUrl = baseUrl + "/owner";
+
+
 
     @Before
     public void setup(){
@@ -26,3 +30,5 @@ public class TestSetups {
         //driver.quit();
     }
 }
+
+
