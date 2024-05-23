@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static stepdefinitions.TestSetups.baseUrl;
@@ -12,5 +13,10 @@ public class HomePage {
     public void getHomePage(){
         driver.get(baseUrl);
     }
+    @Then("We can see the title {string}")
+    public void getTitleText(){
+
+    }
+
 
 }
