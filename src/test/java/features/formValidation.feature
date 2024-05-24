@@ -7,7 +7,7 @@ Feature:Login Form Validation
 
   Scenario: Test Empty Password Field after we enter e-mail on Login Form
     Given The login form is displayed
-    And I have already entered a valid email "paris@gmail.com"
+    And I have already entered a valid email "pariss"
     When I click the login button
     Then An error message is displayed saying "Please fill out this field"
 
