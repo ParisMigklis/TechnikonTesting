@@ -21,7 +21,7 @@ Feature:Login Form Validation
 
   Scenario: Test entering valid fields and logging in
     Given The login form is displayed
-    And I have already entered a valid email "paris@gmail.com"
+    And I have already entered a valid email "pariss"
     And I enter a password "1234"
     When I click the login button
     Then The user is logged in
