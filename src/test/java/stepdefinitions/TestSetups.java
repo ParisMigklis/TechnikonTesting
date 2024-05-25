@@ -28,6 +28,7 @@ public class TestSetups {
     @After
     public void tearDown(){
         //driver.quit();
+        System.out.println("\n\nTest Complete!");
     }
 }
 

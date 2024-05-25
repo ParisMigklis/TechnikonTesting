@@ -20,7 +20,7 @@ public class signupFormValidation {
     //Click The Sign Up Button
     @When("I click the signup button")
     public void submitSignUpForm() {
-        driver.findElement(By.xpath("//form/button"))
+        driver.findElement(By.xpath("/html/body/div/div/main/div/div/form/div[5]/button"))
                 .click();
     }
     //Fill in a valid Username
@@ -46,7 +46,7 @@ public class signupFormValidation {
     }
     @Then("An  invalid password error message is displayed saying {string}")
     public void passwordsDontMatch(String err){
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(8));
 //Wait for the alert to be displayed and store it in a variable
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 //Store the alert text in a variable
@@ -62,8 +62,22 @@ public class signupFormValidation {
         alert.accept();
     }
 
-    @Then("A new user is created")
+    @And("I see signup confirmation")
     public void successCreation(){
         System.out.println("\n\nUser successfully created!!!");
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+//Wait for the alert to be displayed and store it in a variable
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+//Store the alert text in a variable
+        String text = alert.getText();
+        System.out.println("\nTHE ALERT TEXT IS: '"+ text+"'");
+        Assert.assertEquals("\nABORT IT'S A TRAP!!\n","Sign-up successful!",text);
+//Press the OK button
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        alert.accept();
     }
 }

@@ -42,7 +42,8 @@ Feature: SignUp Form Validation
     And I enter a pass "1234"
     And I confirm pass "1234"
     When I click the signup button
-    Then A new user is created
+    And I see signup confirmation
+    Then The login form is displayed
 
 #  Scenario: Test entering a username that already exists while creating a new User
 #  Scenario: Test entering an email that is already in use while creating a new User

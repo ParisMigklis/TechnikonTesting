@@ -4,7 +4,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static stepdefinitions.TestSetups.baseUrl;
 import static stepdefinitions.TestSetups.driver;
@@ -19,7 +27,7 @@ public class formValidationSteps {
     @Then("An error message is displayed saying {string}")
     public void checkErrorMessage(String errorText) throws InterruptedException {
 
-        System.out.println("\n\n\n\nDES TO MANUALLY AKOMA DEN KSEROUME TI THA KANOUME");
+        System.out.println("\n\n\n\nMANUAL CONFIRMATION");
     }
 
     //Edw vazoume legit email
@@ -40,8 +48,21 @@ public class formValidationSteps {
         driver.findElement(By.id(":r3:")).sendKeys(pass);
     }
 
-    @Then("The user is logged in")
+    @And("I see the login confirmation")
     public void newUserMsg() {
-        System.out.println("Gia thn wra to exoume edw otan ftiaxtei tha valoume assertion");
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+//Wait for the alert to be displayed and store it in a variable
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+//Store the alert text in a variable
+        String text = alert.getText();
+        System.out.println("\nTHE ALERT TEXT IS: '"+ text+"'");
+        Assert.assertEquals("\nABORT IT'S A TRAP!!\n","You have successfully logged in!",text);
+//Press the OK button
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        alert.accept();
     }
 }
