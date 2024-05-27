@@ -33,15 +33,15 @@ public class CreatePropertyForm {
     }
     @And("We fill the property E9 {string}")
     public void fillE9(String e9){
-        driver.findElement(By.id(":r1:")).sendKeys(e9);
+        driver.findElement(By.id(":r5:")).sendKeys(e9);
     }
     @And("We fill the property Address {string}")
     public void fillAddress(String addy){
-        driver.findElement(By.id(":r3:")).sendKeys(addy);
+        driver.findElement(By.id(":r7:")).sendKeys(addy);
     }
     @And("We fill the property Year {string}")
     public void fillYear(String year){
-        driver.findElement(By.id(":r5:")).sendKeys(year);
+        driver.findElement(By.id(":r9:")).sendKeys(year);
     }
     @And("We fill Type as a {string}")
     public void fillType(String type){
@@ -49,24 +49,24 @@ public class CreatePropertyForm {
         clickDropdown.click();
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(d -> clickDropdown.isDisplayed());
-        WebElement typeOfProperty = driver.findElement(By.xpath("//*[@id=\":r9:\"]/li[2]"));
+        WebElement typeOfProperty = driver.findElement(By.xpath("//*[@id=\":rd:\"]/li[2]"));
         typeOfProperty.click();
     }
     @And("We fill the URL as {string}")
     public void fillURL(String xurl){
-        driver.findElement(By.id(":rb:")).sendKeys(xurl);
+        driver.findElement(By.id(":rf:")).sendKeys(xurl);
     }
     @And("We fill the property Latitude {string}")
     public void fillLatitude(String year){
-        driver.findElement(By.id(":rd:")).sendKeys(year);
+        driver.findElement(By.id(":rh:")).sendKeys(year);
     }
     @And("We fill the property Longitude {string}")
     public void fillLongitude(String year){
-        driver.findElement(By.id(":rf:")).sendKeys(year);
+        driver.findElement(By.id(":rj:")).sendKeys(year);
     }
     @When("We click the submit button to create a property")
     public void clickSubmit(){
-        driver.findElement(By.xpath("//*[@id=\"scytalis-app\"]/main/div/div/div/form/button[1]"));
+        driver.findElement(By.xpath("//*[@id=\"scytalis-app\"]/main/div/div/div/form/div[8]/button")).click();
     }
     @Then("We get a confirmation that the property was created")
     public void propertyConfirmation(){
@@ -76,7 +76,7 @@ public class CreatePropertyForm {
 //Store the alert text in a variable
         String text = alert.getText();
         System.out.println("\nTHE ALERT TEXT IS: '"+ text+"'");
-        Assert.assertEquals("\nABORT IT'S A TRAP!!\n","Property Successfully created!",text);
+        Assert.assertEquals("\nABORT IT'S A TRAP!!\n","Property created!",text);
 //Press the OK button
         try {
             Thread.sleep(2000);

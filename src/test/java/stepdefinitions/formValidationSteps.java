@@ -27,7 +27,7 @@ public class formValidationSteps {
     @Then("An error message is displayed saying {string}")
     public void checkErrorMessage(String errorText) throws InterruptedException {
 
-        System.out.println("\n\n\n\nMANUAL CONFIRMATION");
+        System.out.println("\n\n\n\nMANUAL CONFIRMATION OF ERROR MESSAGE");
     }
 
     //Edw vazoume legit email
