@@ -31,7 +31,7 @@ public class HighRiskSteps {
     }
 
     @And("We login with our new credentials")
-    public void login(){
+    public void login() throws InterruptedException {
         driver.findElement(By.id(":r9:")).sendKeys("paobc@euroleague.com");
         driver.findElement(By.id(":rb:")).sendKeys("pao");
         driver.findElement(By.xpath("/html/body/div/div/main/div/div/form/div[3]/button"));
@@ -41,5 +41,11 @@ public class HighRiskSteps {
         Assert.assertEquals("\nFAILED!!\n", "You have successfully logged in!", text);
         alert.accept();
 
+        Thread.sleep(10000);
+
+    }
+    @And("We click the create Repair button")
+    public void createRepair(){
+        driver.findElement(By.xpath("//*[@id=\"scytalis-app\"]/main/div/div/div/button[1]")).click();
     }
 }

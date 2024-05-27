@@ -68,7 +68,7 @@ public class CreatePropertyForm {
     public void clickSubmit(){
         driver.findElement(By.xpath("//*[@id=\"scytalis-app\"]/main/div/div/div/form/div[8]/button")).click();
     }
-    @Then("We get a confirmation that the property was created")
+    @And("We get a confirmation that the property was created")
     public void propertyConfirmation(){
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 //Wait for the alert to be displayed and store it in a variable
@@ -84,5 +84,63 @@ public class CreatePropertyForm {
             throw new RuntimeException(e);
         }
         alert.accept();
+    }
+    @Then("We get a confirmation that the repair was created")
+    public void repairConfirmation(){
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+//Wait for the alert to be displayed and store it in a variable
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+//Store the alert text in a variable
+        String text = alert.getText();
+        System.out.println("\nTHE ALERT TEXT IS: '"+ text+"'");
+        Assert.assertEquals("\nABORT IT'S A TRAP!!\n","Repair created!",text);
+//Press the OK button
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        alert.accept();
+    }
+    @Then("We are shown the property status")
+    public void propertyStatus() throws InterruptedException {
+        Thread.sleep(3000);
+    }
+    @And("We fill the repair date")
+    public void repairDate() throws InterruptedException {
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//*[@id=\":rl:\"]")).sendKeys("2/7/2025");
+    }
+    @And("We fill the repair description")
+    public void smallDesc(){
+        driver.findElement(By.xpath("//*[@id=\":rn:\"]")).sendKeys("PAO OLE");
+    }
+    @When("We click the submit button to create a repair")
+    public void clickSubmitRepair(){
+        driver.findElement(By.xpath("//*[@id=\"scytalis-app\"]/main/div/div/form/button[1]")).click();
+    }
+
+    @And("We fill the repair type")
+    public void typeOfRepair() {
+          driver.findElement(By.xpath("//*[@id=\":rp:\"]")).click();
+          driver.findElement(By.xpath("//*[@id=\":rr:\"]/li[1]")).click();
+    }
+    @And("We fill the repair status")
+    public void StatusOfRepair() {
+        driver.findElement(By.xpath("//*[@id=\":rt:\"]")).click();
+        driver.findElement(By.xpath("//*[@id=\":rv:\"]/li[1]")).click();
+    }
+
+    @And("We fill the repair cost")
+    public void repairCost(){
+        driver.findElement(By.xpath("//*[@id=\":r11:\"]")).sendKeys("150");
+    }
+    @And("We fill the repair Description Text")
+    public void descriptionText(){
+        driver.findElement(By.xpath("//*[@id=\":r13:\"]")).sendKeys("O Panathinaikos einai prwtathliths Eurwphs gia 7h fora!!*******!!");
+    }
+    @And("We fill the repair property ID")
+    public void repairPropertyId(){
+        driver.findElement(By.xpath("//*[@id=\":r15:\"]")).sendKeys("11345678910");
     }
 }
