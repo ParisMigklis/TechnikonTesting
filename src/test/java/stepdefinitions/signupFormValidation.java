@@ -46,12 +46,12 @@ public class signupFormValidation {
     }
     @Then("An  invalid password error message is displayed saying {string}")
     public void passwordsDontMatch(String err){
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(8));
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 //Wait for the alert to be displayed and store it in a variable
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 //Store the alert text in a variable
         String text = alert.getText();
-        System.out.println("\nTHE ALERT TEXT IS TEXT: '"+ text+"'");
+        System.out.println("\nTHE ALERT TEXT IS: '"+ text+"'");
         Assert.assertEquals("\nABORT IT'S A TRAP!!\n","Passwords do not match",text);
 //Press the OK button
         try {

@@ -23,9 +23,13 @@ public class NavigationBarSteps {
     public void clickSignup(){
         driver.findElement(By.xpath("/html/body/div/div/div/header/div/a[6]")).click();
     }
-    @When("We click on the navigation repairs button")
+    @When("We click the repairs button")
     public void clickRepairs(){
         driver.findElement(By.xpath("/html/body/div/div/div/header/div/a[5]")).click();
+    }
+    @When("We click the properties button")
+    public void clickProperties(){
+        driver.findElement(By.xpath("//*[@id=\"scytalis-app\"]/div/header/div/a[4]")).click();
     }
     @When("We click the owner button")
     public  void clickOwnerButton(){

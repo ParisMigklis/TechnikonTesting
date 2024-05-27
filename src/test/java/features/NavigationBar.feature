@@ -27,12 +27,18 @@ Feature: Navigation Bar
 
   Scenario:Repairs  from navigation bar
     Given The navigation bar is displayed
-    When We click on the navigation repairs button
+    When We click the repairs button
     Then We are at the "/repairs" page
 
+  Scenario:Properties  from navigation bar
+    Given The navigation bar is displayed
+    When We click the properties button
+    Then We are at the "/properties" page
 
   Scenario:Home from navigation bar
     Given The navigation bar is displayed
     When We click on the navigation home button
     Then The home page is displayed
+
+
 
