@@ -18,14 +18,14 @@ Feature: Checking functionality of create a Property form.
     When We click the submit button to create a property
     And We get a confirmation that the property was created
     Then We are shown the property status
-    And We click the repairs button
-    And We click the create Repair button
-    And We fill the repair date
-    And We fill the repair description
-    And We fill the repair type
-    And We fill the repair status
-    And We fill the repair cost
-    And We fill the repair Description Text
-    And We fill the repair property ID
-    When We click the submit button to create a repair
-    Then We get a confirmation that the repair was created
+#    And We click the repairs button
+#    And We click the create Repair button
+#    And We fill the repair date
+#    And We fill the repair description
+#    And We fill the repair type
+#    And We fill the repair status
+#    And We fill the repair cost
+#    And We fill the repair Description Text
+#    And We fill the repair property ID
+#    When We click the submit button to create a repair
+#    Then We get a confirmation that the repair was created

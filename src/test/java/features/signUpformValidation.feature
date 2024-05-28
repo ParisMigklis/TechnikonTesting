@@ -37,8 +37,8 @@ Feature: SignUp Form Validation
 
   Scenario: Test filling the form with valid credentials and creating new User
     Given The signup form is displayed
-    And I enter a valid username "paris13"
-    And I enter a valid email "paris13@gmail.com"
+    And I enter a valid username "paris13bc"
+    And I enter a valid email "paris13bc@gmail.com"
     And I enter a pass "1234"
     And I confirm pass "1234"
     When I click the signup button

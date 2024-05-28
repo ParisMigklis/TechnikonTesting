@@ -4,10 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
@@ -66,8 +63,17 @@ public class CreatePropertyForm {
     }
     @When("We click the submit button to create a property")
     public void clickSubmit(){
-        driver.findElement(By.xpath("//*[@id=\"scytalis-app\"]/main/div/div/div/form/div[8]/button")).click();
-    }
+        WebElement button = driver.findElement(By.xpath("//*[@id='scytalis-app']/main/div/div/div/form/div[8]/button"));
+
+// Use JavaScript to scroll the element into view
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
+
+// Wait for the element to be clickable (optional but recommended)
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(button));
+
+// Click the button
+        button.click();    }
     @And("We get a confirmation that the property was created")
     public void propertyConfirmation(){
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(3));
